@@ -1,0 +1,27 @@
+1. Crear el proyecto de angular
+ > ng new frontend_angular
+ >  (y) para agregar routing-module.ts
+ >  (css) para los estilos
+
+2. creamos el componente de inicio
+> ng g c inicio
+
+3. creamos nuestro primer modulo (productos)
+> ng g m productos --routing
+
+4. creamos el modulo (auth)
+> ng g m auth --routing
+
+4. creamos el modulo (admin)
+> ng g m admin --routing
+
+5. generar los componentes que son parte de los modulos (productos)
+> ng g c productos/components/productos
+> ng g c productos/components/productos-detalle
+
+5. generar los componentes que son parte de los modulos (auth)
+> ng g c auth/components/login
+> ng g c auth/components/registro
+
+6. generar el layout (layout)
+> ng g c layout
