@@ -1,19 +1,19 @@
-<h1>INGRESAR</h1>
 
-<form [formGroup]="loginForm">
+  <mat-card>
+    <mat-card-title>INGRESAR</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="loginForm">
 
-    <label for="e">Correo: </label>
-    <input id="e" type="text" formControlName="email">
-
-    <br>
-  
-    <label for="p">Contraseña: </label>
-    <input id="p" type="password" formControlName="password">
-
-    <br>
-    <button [disabled]="!loginForm.valid" (click)="ingresar()">INGRESAR</button>
-  
-  </form>
-
-  <hr>
-  {{ loginForm.value | json }}
+        <mat-form-field>
+          <input matInput id="e" type="email" formControlName="email" placeholder="Ingrese su Correo">
+        </mat-form-field>
+        <br>
+      <mat-form-field>
+        <input matInput id="p" type="password" formControlName="password" placeholder="Ingrese su Contraseña">
+    </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" [disabled]="!loginForm.valid" (click)="ingresar()">INGRESAR</button>
+      
+      </form>
+    </mat-card-content>
+  </mat-card>

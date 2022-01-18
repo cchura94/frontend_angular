@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './components/login/login.service';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { LoginService } from './components/login/login.service';
     AuthRoutingModule,
     HttpClientModule, // para peticiones http (GET, POST)
     ReactiveFormsModule, // Formularios reactivos
+    MaterialModule, // habilitar los componentes de MaterialAngular
   ],
   providers: [LoginService]
 })
