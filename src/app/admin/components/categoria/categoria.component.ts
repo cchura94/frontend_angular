@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Categoria } from 'src/app/core/interfaces/categoria';
 import { CategoriaService } from 'src/app/core/services/categoria.service';
+import { FormCategoriaComponent } from './form-categoria/form-categoria.component';
 
 export interface PeriodicElement {
   name: string;
@@ -33,7 +35,8 @@ export class CategoriaComponent implements OnInit {
   dataSource = ELEMENT_DATA;
   lista_categorias: Categoria[] = []
 
-  constructor(private catService: CategoriaService) { }
+  constructor(private catService: CategoriaService,
+              public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.listarCategorias();
@@ -50,4 +53,18 @@ export class CategoriaComponent implements OnInit {
     )
   }
 
+  openNuevaCategoria(datos: any = {nombre: '', detalle: '', editar: false}) {
+    
+    const dialogRef = this.dialog.open(FormCategoriaComponent, {
+      width: "500px",
+      data: datos
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      this.listarCategorias()
+    });
+  }
+
 }
+

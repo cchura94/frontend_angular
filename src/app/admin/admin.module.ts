@@ -10,16 +10,19 @@ import { ProductoComponent } from './components/producto/producto.component';
 import { CoreModule } from '../core/core.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../auth.interceptor';
+import { FormCategoriaComponent } from './components/categoria/form-categoria/form-categoria.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [NavComponent, DashboardComponent, CategoriaComponent, ProductoComponent],
+  declarations: [NavComponent, DashboardComponent, CategoriaComponent, ProductoComponent, FormCategoriaComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
     MaterialModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

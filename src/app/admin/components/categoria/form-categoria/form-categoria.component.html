@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Nueva Categoria</h2>
+<mat-dialog-content>
+    <form [formGroup]="categoriaForm">
+        <mat-form-field>
+            <input type="text" matInput placeholder="Ingrese Nombre" formControlName="nombre">
+        </mat-form-field>
+        <mat-form-field>
+            <input type="text" matInput placeholder="Detalle" formControlName="detalle">
+        </mat-form-field>
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial [disabled]="!categoriaForm.valid" (click)="guardarProducto()">Guardar</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial [disabled]="!categoriaForm.valid" (click)="modificarProducto()">Modificar</button>
+</mat-dialog-actions>
+
+{{ categoriaForm.value | json }}

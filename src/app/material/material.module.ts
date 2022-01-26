@@ -14,6 +14,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const modulosMaterial = [
   MatButtonModule,
@@ -28,7 +30,8 @@ const modulosMaterial = [
   MatGridListModule,
   MatMenuModule,
   MatTableModule,    
-  
+  MatDialogModule,
+  MatSnackBarModule,
 ]
 
 
