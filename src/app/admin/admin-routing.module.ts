@@ -4,6 +4,9 @@ import { AuthGuard } from '../guards/auth.guard';
 import { CategoriaComponent } from './components/categoria/categoria.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavComponent } from './components/nav/nav.component';
+import { EditarProductoComponent } from './components/producto/editar-producto/editar-producto.component';
+import { ListaProductoComponent } from './components/producto/lista-producto/lista-producto.component';
+import { NuevoProductoComponent } from './components/producto/nuevo-producto/nuevo-producto.component';
 import { ProductoComponent } from './components/producto/producto.component';
 
 const routes: Routes = [
@@ -24,7 +27,21 @@ const routes: Routes = [
       {
         path: 'producto',
         component: ProductoComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
+        children: [
+          {
+            path: '',
+            component: ListaProductoComponent
+          },
+          {
+            path: 'nuevo',
+            component: NuevoProductoComponent
+          },
+          {
+            path: ':id/editar',
+            component: EditarProductoComponent
+          }
+        ]
       },
     ]
 

@@ -1,0 +1,31 @@
+<h1>Nuevo producto</h1>
+
+<form [formGroup]="productoForm">
+    <mat-form-field>
+        <input type="text" matInput placeholder="Ingrese Nombre" formControlName="nombre">
+    </mat-form-field>
+    <mat-form-field>
+        <input type="number" step="0.01" matInput placeholder="Ingrese Precio" formControlName="precio">
+    </mat-form-field>
+    <mat-form-field>
+        <input type="number" matInput placeholder="Ingrese Stock" formControlName="stock">
+    </mat-form-field>
+    <mat-form-field>
+        <input type="number" matInput placeholder="Ingrese Categoria" formControlName="categoria_id">
+    </mat-form-field>
+    <mat-toolbar>
+        <label for="">{{ nombreImagenSeleccionada }}</label>
+        <input type="file" #imagenInput hidden="true" id="img" (change)="imagenInputSeleccionado($event)" >
+        <button type="button" mat-flat-button color="primary" (click)="imagenInput.click()">Cargar Imagen</button>
+    </mat-toolbar>
+    <div class="file">
+        <div *ngIf="imgPreview">
+            <img [src]="imgPreview" alt="">
+        </div>
+    </div>
+    <mat-form-field>
+        <input type="text" matInput placeholder="Descripción" formControlName="descripcion">
+    </mat-form-field>
+
+    <button mat-button color="primary" (click)="guardarProducto()">Guardar producto</button>
+</form>
