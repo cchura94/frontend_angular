@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { environment } from 'src/environments/environment';
-import { Producto } from '../interfaces/producto';
+import { PaginateProducto, Producto } from '../interfaces/producto';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,9 @@ export class ProductoService {
 
   constructor(protected http: HttpClient) { }
 
-  getProductos(page=1, limit=10){
-    return this.http.get<Producto[]>(`${this.urlbase}/v1/producto?page=${page}&limit=${limit}`)
+  getProductos(page: number= 0, limit:number= 2){
+    page = page+1;
+    return this.http.get(`${this.urlbase}/v1/producto?page=${page}&limit=${limit}`)
   }
 
   sendProducto(datos: FormGroup){
